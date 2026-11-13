@@ -146,13 +146,13 @@ class Wall:
         self.y1 = y1
         self.x2 = x2
         self.y2 = y2
-
+       
     def check_collision(self, sphere):
         # TODO: The logic is a bit convoluted.
         # We only reverse directions if a collision occured and not
         # if we are already moving away from the wall and got "shoved" into
         # by another sphere collision and then reverse course into the wall.
-
+        
         # Check for vertical walls
         if self.x1 == self.x2:
             if self.x1 - sphere.radius < sphere.x < self.x1 + sphere.radius:
@@ -161,6 +161,7 @@ class Wall:
                         sphere.vx = -sphere.vx
                     elif (sphere.x > self.x1) and sphere.vx < 0:
                         sphere.vx = -sphere.vx
+                        
 
         # Check for horizontal walls
         elif self.y1 == self.y2:
@@ -201,6 +202,8 @@ class Simulation:
             Wall(0, self.height, self.width, self.height),  # Bottom wall
             Wall(0, 0, 0, self.height),  # Left wall
             Wall(self.width, 0, self.width, self.height),  # Right wall
+            Wall((self.width)/2, 0, (self.width)/2, 0.4*self.height),# middle wall1
+            Wall((self.width)/2, 0.6*self.height, (self.width)/2, self.height)# middle wall1
         ]
         return walls
 
