@@ -201,7 +201,8 @@ class Simulation:
             Wall(0, self.height, self.width, self.height),  # Bottom wall
             Wall(0, 0, 0, self.height),  # Left wall
             Wall(self.width, 0, self.width, self.height),  # Right wall
-            Wall(self.width / 2, 0, self.width / 2, self.height), # middle wall --> solid barrier
+            # Wall(self.width / 2, 0, self.width / 2, self.height), # middle wall --> solid barrier
+            Wall(self.width / 2, 0, self.width / 2, self.height / 1.5), #barrier with hole
         ]
         return walls
 
