@@ -202,6 +202,13 @@ class Simulation:
             Wall(0, 0, 0, self.height),  # Left wall
             Wall(self.width, 0, self.width, self.height),  # Right wall
         ]
+        mid_x = self.width / 2
+        hole_size = 100
+        hole_y_position = self.height / 2
+        hole_top = hole_y_position - (hole_size / 2)
+        hole_bottom = hole_y_position + (hole_size / 2)
+        walls.append(Wall(mid_x, 0, mid_x, hole_top))
+        walls.append(Wall(mid_x, hole_bottom, mid_x, self.height))
         return walls
 
     def update(self):
